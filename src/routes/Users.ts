@@ -25,7 +25,7 @@ router.get('/all', async (req: Request, res: Response) => {
     return res.status(OK).json({users});
 });
 
-router.get('/events', async (req, res)=>{
+router.get('/pastEvents', async (req, res)=>{
     const getEvents= new GetEvents();
     let event: eventDetails[];
     let err: Error;
@@ -35,11 +35,44 @@ router.get('/events', async (req, res)=>{
         throw new Error('Router Problem');
     }
     return res.json({
+        type: 'Past Events',
         data: event,
         error: null
     });
 });
 
+
+router.get('/ongoingEvents', async (req, res)=>{
+    const getEvents= new GetEvents();
+    let event: eventDetails[];
+    let err: Error;
+    [err, event]= await nest(getEvents.getOngoingEvents());
+    if(err){
+        logger.error('Router Problem');
+        throw new Error('Router Problem');
+    }
+    return res.json({
+        type: 'Present Events',
+        data: event,
+        error: null
+    });
+});
+
+router.get('/futureEvents', async (req, res)=>{
+    const getEvents= new GetEvents();
+    let event: eventDetails[];
+    let err: Error;
+    [err, event]= await nest(getEvents.getFutureEvents());
+    if(err){
+        logger.error('Router Problem');
+        throw new Error('Router Problem');
+    }
+    return res.json({
+        type: 'Future Events',
+        data: event,
+        error: null
+    });
+});
 
 /******************************************************************************
  *                       Add One - "POST /api/users/add"
