@@ -20,10 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="302eef67-d5ae-419d-be83-5449dddbf001" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/daos/MockDb/MockDao.mock.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/daos/MockDb/MockDb.backup.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/daos/MockDb/MockDb.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/daos/User/UserDao.mock.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/daos/User/UserDao.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/User.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/Users.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Users.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/getEvents/getEvents.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/getEvents/getEvents.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/getEvents/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/getEvents/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +46,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../falcon-heavy" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -59,6 +64,7 @@
       <updated>1601212601671</updated>
       <workItem from="1601212602805" duration="10455000" />
       <workItem from="1601291536844" duration="10997000" />
+      <workItem from="1601574641021" duration="394000" />
     </task>
     <servers />
   </component>
@@ -81,6 +87,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="87" width="1089" height="713" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601292001426">
