@@ -16,7 +16,7 @@ export class GetEvents implements IGetEventService{
         return res;
     }
     async getPastEvents(): Promise<eventDetails[] | Error>{
-        let err:Error;
+        let err: Error;
         let res: any;
         [err, res]= await  nest(this.getEvents());
         if(err){
@@ -41,5 +41,61 @@ export class GetEvents implements IGetEventService{
             }});
         return pastEvents;
 
-    }}
+    }
+    async getOngoingEvents(): Promise<eventDetails[] | Error>{
+        let err : Error;
+        let res: any;
+        [err, res]= await  nest(this.getEvents());
+        if(err){
+            logger.error('Error in getEvents function',{error: err});
+            throw new Error('Error in getEvents function');
+        }
+        const ongoingEvents = new Array<eventDetails>();
+        const today= new Date();
+        res.forEach((item: {id : number; title: string; host: string; url: string; start: Date; end: Date; countdown: number; icon: string;}) => {
+            const e= new Date(item.end);
+            const s= new Date(item.start);
+            if(e.toDateString() > today.toDateString() && today.toDateString() > s.toDateString()){
+                ongoingEvents.push({
+                    id : item.id,
+                    title: item.title,
+                    host: item.host,
+                    url: item.url,
+                    start: item.start,
+                    end: item.end,
+                    countdown: item.countdown,
+                    icon: item.icon,
+                });
+            }});
+        return ongoingEvents;
+
+    }
+    async getFutureEvents(): Promise<eventDetails[] | Error>{
+        let err : Error;
+        let res: any;
+        [err, res]= await  nest(this.getEvents());
+        if(err){
+            logger.error('Error in getEvents function',{error: err});
+            throw new Error('Error in getEvents function');
+        }
+        const futureEvents = new Array<eventDetails>();
+        const today= new Date();
+        res.forEach((item: {id : number; title: string; host: string; url: string; start: Date; end: Date; countdown: number; icon: string;}) => {
+            const s= new Date(item.start);
+            if(s.toDateString() > today.toDateString()){
+                futureEvents.push({
+                    id : item.id,
+                    title: item.title,
+                    host: item.host,
+                    url: item.url,
+                    start: item.start,
+                    end: item.end,
+                    countdown: item.countdown,
+                    icon: item.icon,
+                });
+            }});
+        return futureEvents;
+
+    }
+}
 
